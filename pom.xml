@@ -45,7 +45,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>ru.geekbrains.lesson2.App</mainClass>
+                            <mainClass>ru.gb.lesson2.App</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

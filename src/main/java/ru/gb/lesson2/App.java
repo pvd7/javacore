@@ -1,8 +1,8 @@
-package ru.geekbrains.lesson2;
+package ru.gb.lesson2;
 
 import org.apache.commons.lang3.StringUtils;
-import ru.geekbrains.lesson2.exception.MyArrayDataException;
-import ru.geekbrains.lesson2.exception.MyArraySizeException;
+import ru.gb.lesson2.exception.MyArrayDataException;
+import ru.gb.lesson2.exception.MyArraySizeException;
 
 public class App {
     private static final int MAX_LENGTH = 4;

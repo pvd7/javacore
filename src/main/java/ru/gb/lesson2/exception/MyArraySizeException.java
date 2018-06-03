@@ -1,4 +1,4 @@
-package ru.geekbrains.lesson2.exception;
+package ru.gb.lesson2.exception;
 
 public class MyArraySizeException extends Exception {
     public MyArraySizeException(String message) {
