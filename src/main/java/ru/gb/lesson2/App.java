@@ -1,6 +1,6 @@
 /*
  * @author  Pavel Dymov
- * @github  https://github.com/pvd7/javacore.git
+ * @github  https://github.com/pvd7/pdymov-javacore-advanced.git
  */
 
 package ru.gb.lesson2;
