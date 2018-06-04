@@ -1,3 +1,8 @@
+/*
+ * @author  Pavel Dymov
+ * @github  https://github.com/pvd7/javacore.git
+ */
+
 package ru.gb.lesson2;
 
 import org.apache.commons.lang3.StringUtils;
