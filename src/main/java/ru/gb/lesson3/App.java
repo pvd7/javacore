@@ -45,6 +45,7 @@ public class App {
 
         System.out.println(phoneBook.get("Ivan"));
         System.out.println(phoneBook.get("Dima"));
+        System.out.println(phoneBook.get("Dima2"));
     }
 
     public static void main(String[] args) {
