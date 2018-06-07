@@ -14,18 +14,25 @@ public class PhoneBook {
         this.users = new ArrayList<>();
     }
 
-    private static void accept(User item) {
-    }
-
     public void add(User user) {
         users.add(user);
     }
 
-    public String get(String name) {
-        String phones = "";
+    public StringBuilder get(String name) {
+        StringBuilder phones = new StringBuilder();
+        phones.append(name);
+        phones.append(": ");
+        String phone;
+        Boolean bFirst = true;
         for (User u: users)
-            if (u.getName().equals(name)) phones += ", " + u.getPhone();
-
-        return name + ": " + phones.substring(2, phones.length());
+            if (u.getName().equals(name)) {
+                phone = u.getPhone().trim();
+                if (!phone.isEmpty()) {
+                    if (bFirst) bFirst = false;
+                    else phones.append(", ");
+                    phones.append(phone);
+                }
+            }
+        return phones;
     }
 }

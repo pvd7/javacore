@@ -6,10 +6,7 @@ package ru.gb.lesson3;
 
 import ru.gb.lesson3.entity.PhoneBook;
 import ru.gb.lesson3.entity.User;
-
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 
 public class App {
     /**
@@ -42,10 +39,13 @@ public class App {
         phoneBook.add(new User("Dima", "22-3-24"));
         phoneBook.add(new User("Sasha", "22-3-25"));
         phoneBook.add(new User("Alex", "22-3-26"));
+        phoneBook.add(new User("Masha", ""));
+        phoneBook.add(new User("Masha", ""));
 
         System.out.println(phoneBook.get("Ivan"));
         System.out.println(phoneBook.get("Dima"));
         System.out.println(phoneBook.get("Dima2"));
+        System.out.println(phoneBook.get("Masha"));
     }
 
     public static void main(String[] args) {
