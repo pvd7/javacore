@@ -25,7 +25,7 @@ public class ChatWindow extends JFrame {
     public ChatWindow() {
         setTitle("Chat");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setBounds(WINDOW_POS_X, WINDOW_POS_Y, WINDOW_HEIGHT, WINDOW_WIDTH);
+        setBounds(WINDOW_POS_X, WINDOW_POS_Y, WINDOW_WIDTH, WINDOW_HEIGHT);
 
         // область сообщений
         taMsg = new JTextArea();

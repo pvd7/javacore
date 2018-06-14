@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2018.
+ * 
  */
 
 package ru.gb.lesson5;
@@ -11,7 +12,7 @@ public class App {
      * Вычисления в массиве
      *
      * @param src    массив данных
-     * @param srcPos начальная позиция
+     * @param srcPos стартовая позиция
      * @param count количество элементов
      */
     private static void arrayCalc(float[] src, int srcPos, int count) {
@@ -37,7 +38,7 @@ public class App {
 
     /**
      * Выносим вычисления массива в разные потоки
-     * для разделения массива сдвигаем начальную позицию
+     * для разделения массива на части сдвигаем стартовую позицию позицию
      *
      * @param arr         массив данных
      * @param threadCount количество потоков, по которым разнести вычисления
@@ -46,13 +47,13 @@ public class App {
         // значения по умолчанию
         for (int i = 0; i < arr.length; i++) arr[i] = 1;
         // шаг смещения в массиве
-        int offsetStep = arr.length / threadCount;
+        int offset = arr.length / threadCount;
         // создаем и запускаем потоки
         for (int i = 0; i < threadCount; i++) {
             int finalI = i;
             Runnable task = () -> {
                 long timeStart = System.nanoTime();
-                arrayCalc(arr, finalI * offsetStep, offsetStep);
+                arrayCalc(arr, finalI * offset, offset);
                 System.out.println("Method 2: [" + Thread.currentThread().getName() + "] " + TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - timeStart) + "ms");
             };
             new Thread(task).start();
