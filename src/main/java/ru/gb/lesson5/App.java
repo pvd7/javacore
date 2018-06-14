@@ -1,6 +1,7 @@
 /*
  * Copyright (c) 2018.
- * 
+ * JavaCore. Advanced level. Homework
+ * @author Pavel Dymov
  */
 
 package ru.gb.lesson5;
@@ -13,7 +14,7 @@ public class App {
      *
      * @param src    массив данных
      * @param srcPos стартовая позиция
-     * @param count количество элементов
+     * @param count  количество элементов
      */
     private static void arrayCalc(float[] src, int srcPos, int count) {
         int size = srcPos + count;
