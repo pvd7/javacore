@@ -56,7 +56,8 @@ public class App {
                 arrayCalc(arr, finalI * offset, offset);
                 System.out.println("Method 2: [" + Thread.currentThread().getName() + "] " + TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - timeStart) + "ms");
             };
-            new Thread(task).start();
+            Thread thread = new Thread(task);
+            thread.start();
         }
     }
 
