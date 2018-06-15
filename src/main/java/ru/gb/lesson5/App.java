@@ -28,13 +28,13 @@ public class App {
      *
      * @param arr массив данных
      */
-    private static void Method1(float[] arr) {
-        System.out.print("Method 1: ");
+    private static void oneThread(float[] arr) {
         // значения по умолчанию
         for (int i = 0; i < arr.length; i++) arr[i] = 1;
+
         long timeStart = System.nanoTime();
         arrayCalc(arr, 0, arr.length);
-        System.out.println("[" + Thread.currentThread().getName() + "] " + TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - timeStart) + "ms");
+        System.out.println("oneThread: [" + Thread.currentThread().getName() + "] " + TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - timeStart) + "ms");
     }
 
     /**
@@ -44,7 +44,7 @@ public class App {
      * @param arr         массив данных
      * @param threadCount количество потоков, по которым разнести вычисления
      */
-    private static void Method2(float[] arr, int threadCount) {
+    private static void multiThread(float[] arr, int threadCount) {
         // значения по умолчанию
         for (int i = 0; i < arr.length; i++) arr[i] = 1;
         // шаг смещения в массиве
@@ -55,7 +55,7 @@ public class App {
             Runnable task = () -> {
                 long timeStart = System.nanoTime();
                 arrayCalc(arr, finalI * offset, offset);
-                System.out.println("Method 2: [" + Thread.currentThread().getName() + "] " + TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - timeStart) + "ms");
+                System.out.println("multiThread: [" + Thread.currentThread().getName() + "] " + TimeUnit.NANOSECONDS.toMillis(System.nanoTime() - timeStart) + "ms");
             };
             Thread thread = new Thread(task);
             thread.start();
@@ -64,13 +64,13 @@ public class App {
 
     public static void main(String[] args) {
         final int size = 1000000;
-        float[] arr = new float[size];
+        final float[] arr = new float[size];
 
         System.out.printf("size: %s\n", size);
 
-        Method1(arr);
+        oneThread(arr);
 
-        int threadCount = 7;
-        Method2(arr, threadCount);
+        int threadCount = 2;
+        multiThread(arr, threadCount);
     }
 }
