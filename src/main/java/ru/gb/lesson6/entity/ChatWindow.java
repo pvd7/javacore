@@ -6,6 +6,7 @@
 package ru.gb.lesson6.entity;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
@@ -25,6 +26,7 @@ public class ChatWindow extends JFrame {
     private JButton btnSend;
     private JTextField tfText;
     private JTextArea taMessages;
+    private JScrollPane spMessages;
 
     /**
      * Создает окно чата
@@ -39,7 +41,7 @@ public class ChatWindow extends JFrame {
 
         this.userName = userName;
 
-        setTitle("Chat");
+        setTitle("Chat " + userName);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         getRootPane().setDefaultButton(btnSend);
@@ -62,6 +64,7 @@ public class ChatWindow extends JFrame {
                 while (!socket.isClosed()) {
                     str = sc.nextLine();
                     taMessages.append(str + "\n");
+                    taMessages.setCaretPosition(taMessages.getDocument().getLength());
                 }
             } catch (IOException e) {
                 e.printStackTrace();
@@ -76,6 +79,7 @@ public class ChatWindow extends JFrame {
         String msg = DATE_FORMAT.format(System.currentTimeMillis()) + " " + getUserName() + ": " + tfText.getText();
 
         taMessages.append(msg + "\n");
+        taMessages.setCaretPosition(taMessages.getDocument().getLength());
 
         out.println(msg);
         out.flush();
